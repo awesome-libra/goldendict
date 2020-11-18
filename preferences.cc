@@ -205,6 +205,8 @@ Preferences::Preferences( QWidget * parent, Config::Class & cfg_ ):
 
   ui.collapseBigArticles->setChecked( p.collapseBigArticles );
   ui.articleSizeLimit->setValue( p.articleSizeLimit );
+  ui.limitInputPhraseLength->setChecked( p.limitInputPhraseLength );
+  ui.inputPhraseLengthLimit->setValue( p.inputPhraseLengthLimit );
   ui.ignoreDiacritics->setChecked( p.ignoreDiacritics );
 
   ui.synonymSearchEnabled->setChecked( p.synonymSearchEnabled );
@@ -417,7 +419,9 @@ Config::Preferences Preferences::getPreferences()
   p.confirmFavoritesDeletion = ui.confirmFavoritesDeletion->isChecked();
 
   p.collapseBigArticles = ui.collapseBigArticles->isChecked();
-  p.articleSizeLimit = ui.articleSizeLimit->text().toInt();
+  p.articleSizeLimit = ui.articleSizeLimit->value();
+  p.limitInputPhraseLength = ui.limitInputPhraseLength->isChecked();
+  p.inputPhraseLengthLimit = ui.inputPhraseLengthLimit->value();
   p.ignoreDiacritics = ui.ignoreDiacritics->isChecked();
 
   p.synonymSearchEnabled = ui.synonymSearchEnabled->isChecked();
